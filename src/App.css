@@ -36,6 +36,53 @@ h1 {
   text-align: center;
 }
 
+.battle-control {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.battle-control button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  background: linear-gradient(45deg, #FFA500, #FFD700);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.battle-control .start-button:hover {
+  background: linear-gradient(45deg, #FF8C00, #FFBF00);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.battle-control .reset-button {
+  background: linear-gradient(45deg, #FF4500, #FF6347);
+}
+
+.battle-control .reset-button:hover {
+  background: linear-gradient(45deg, #E03A00, #FF5733);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.battle-control .reset-button:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
 .spinner {
   border: 4px solid rgba(255, 255, 255, 0.3);
   width: 40px;

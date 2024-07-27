@@ -1,38 +1,4 @@
-.battle-control {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Centraliza verticalmente */
-  gap: 20px;
-}
 
-.battle-control button {
-  padding: 10px 20px;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  background-color: #007BFF;
-}
-
-.battle-control .reset-button {
-  background-color: #FF6347;
-}
-
-.battle-control .start-button:hover {
-  background-color: #0056b3;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.battle-control .reset-button:hover {
- background-color: #c41e1e; 
-}
 
 .battle-result {
   position: fixed;

@@ -12,6 +12,7 @@ function App() {
   const [selectedHero, setSelectedHero] = useState(null);
   const [heroesForBattle, setHeroesForBattle] = useState([]);
   const [battleResult, setBattleResult] = useState(null);
+  const [battleStarted, setBattleStarted] = useState(false);
 
   useEffect(() => {
     fetch('https://homologacao3.azapfy.com.br/api/ps/metahumans')
@@ -50,33 +51,35 @@ function App() {
 
     let result = '';
     if (hero1Stats > hero2Stats) {
-      result = `${hero1.name} wins!`;
+      result = `${hero1.name} venceu!`;
     } else if (hero1Stats < hero2Stats) {
-      result = `${hero2.name} wins!`;
+      result = `${hero2.name} venceu!`;
     } else {
       result = 'It\'s a tie!';
     }
 
     setBattleResult({ hero1, hero2, result });
+    setBattleStarted(true);
   };
 
   const resetBattle = () => {
     setHeroesForBattle([]);
     setBattleResult(null);
+    setBattleStarted(false);
   };
 
   const closeModal = () => setSelectedHero(null);
 
   return (
     <div className="App">
-      <h1>Heróis</h1>
+      <h1>Batalha de Heróis By Ryan Marinho</h1>
       <SearchBar setSearchTerm={setSearchTerm} />
       <div className="battle-control">
-        {heroesForBattle.length === 2 && (
+        {!battleStarted && heroesForBattle.length === 2 && (
           <button className="start-button" onClick={initiateBattle}>Iniciar Batalha</button>
         )}
         {battleResult && (
-          <button className="reset-button" onClick={resetBattle}>Resetar Battle</button>
+          <button className="reset-button" onClick={resetBattle}>Resetar Batalha</button>
         )}
       </div>
       {battleResult && <BattleResult {...battleResult} />}
